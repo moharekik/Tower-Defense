@@ -1,0 +1,259 @@
+@import url('./fonts/luckiestGuy.css');
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+:root {
+    --size-mode: 0;
+    --dir : row;
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    :root {
+        --size-mode: 1;
+        --dir: column;
+    }
+}
+
+h1, h2, p {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+button { 
+    cursor: pointer;
+}
+
+.panel {
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    align-items: center;
+    padding : 0.8em;
+    margin-bottom: 0.6em;
+    flex-wrap: wrap;
+    background-color: #404040;
+    color : white;
+    z-index: 10;
+}
+
+.panel h1, h2 {
+    font-family: 'Luckiest Guy', cursive;
+    font-weight: 100;
+    font-size: 1.3em;
+    padding-inline: 0.5em;
+    padding-top: 0.5em;
+    padding-bottom: 0.2em;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+.panel button, .panel input {
+    font-family: 'Luckiest Guy', cursive;
+    border-radius: 1em;
+    font-weight: 100;
+    padding-inline: 0.5em;
+    padding-bottom: 0.2em;
+    padding-top: 0.5em;
+    margin-inline: 0.6em;
+    text-align: center;
+    font-size: 1.3em;
+    background-color: #2E2E2E;
+    color: white;
+    height: 100%;
+    box-sizing: border-box;
+    border: none;
+    transition: 300ms ease;
+}
+
+.size, .speed, .btns, .starts-and-stops {
+    display: flex;
+    min-width: min-content;
+    align-items: center;
+    padding-block: 0.2em;
+    margin-right: 1em;
+}
+
+input[type=number] {
+    width: 4em;
+}
+
+.startbtn:hover {
+    background-color: green;
+}
+
+.stopbtn:hover {
+    background-color: darkred;
+}
+
+.title {
+    text-align: center;
+}
+
+.world-container {
+    display: flex;
+    flex-direction: var(--dir);
+    flex : 1;
+    padding-bottom: 2%;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+.world {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    box-sizing: border-box;
+}
+
+.places {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+
+.place {
+    display: flex;
+    min-height: 1em;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1/1;
+    background-size: 101%;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+    flex : var(--size-mode);
+    cursor: pointer;
+}
+
+.place:hover {
+    filter: brightness(1.2);
+}
+
+.land {
+    background-image: url("../img/land.svg");
+}
+
+.finish {
+    background-image: url("../img/finish.svg");
+}
+
+.road {
+    background-image: url("../img/road.svg");
+}
+
+.rocks {
+    background-image: url("../img/rocks.svg");
+}
+
+.start {
+    background-image: url("../img/start.svg");
+}
+
+.tree {
+    background-image: url("../img/tree.svg");
+}
+
+
+/* =============== Actors =============== */
+
+.actor {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.tower {
+    background-image: url("../img/tower.svg");
+}
+
+.gobelin {
+    background-image: url("../img/gobelin.svg");
+}
+
+/* =============== Tooltip =============== */
+
+
+/* Tooltip text */
+.place .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 10;
+    transform: translate(0, -100%);
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.place:hover .tooltiptext {
+    visibility: visible;
+}
+
+/* =============== Splash screen =============== */
+
+
+.final {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    position: absolute;
+    backdrop-filter: blur(0.1em);
+    align-items: center;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    flex-direction: column;
+    background: rgba(0, 150, 136, 0.7);
+    transform: translateY(-100%);
+    transition: 300ms ease;
+}
+
+.final h1 {
+    font-size: 3em;
+    width: fit-content;
+    color: white;
+    padding: 1em;
+    border-radius: 3em;
+    text-align: center;
+    transition: 300ms ease;
+}
+
+.final button {
+    font-size: 1.5em;
+    color: white;
+    width: 7em;
+    text-align: center;
+    padding: 0.3em;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 0.3em;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    cursor: pointer;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    display: block;
+    transition: 300ms cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+
+.final button:hover {
+    box-shadow: 11px 10px 32px 0 rgb(255 255 255 / 37%);
+    background: rgba(255, 255, 255, 0.6);
+    color: black;
+}

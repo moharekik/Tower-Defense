@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tower Defense</title>
+    <link rel="stylesheet" href="../public/styles/styles.css" />
+</head>
+
+<body>
+    <div class="panel">
+        <div class="size">
+            <h2>Map size :</h2>
+            <input type="number" class="sizex" value="16" />
+            <h2>x</h2>
+            <input type="number" class="sizey" value="8" />
+        </div>
+
+        <div class="starts-and-stops">
+            <h2>Nb Starts</h2>
+            <input type="number" class="nbstarts" value="1" />
+            <h2>Nb Finish</h2>
+            <input type="number" class="nbfinishes" value="1" />
+        </div>
+
+        <div class="speed">
+            <h2>Speed :</h2>
+            <input type="number" class="timeout" value="10" />
+        </div>
+
+        <div class="btns">
+            <button class="startbtn">Start</button>
+        </div>
+        <div class="infos"></div>
+    </div>
+
+    <div class="world-container">
+        <div class="world"></div>
+    </div>
+
+    <div class="final">
+        <h1></h1>
+        <button></button>
+    </div>
+
+    <script type="module" src="./server.ts"></script>
+</body>
+
+</html>
